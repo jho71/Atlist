@@ -1,60 +1,62 @@
-
-/* New rules for this project */
-
-#main-pic{
-  width:35%;
-  height:10%;
-  padding: 12px 20px 15px 30px;
-}
-
-.header {
-  background-color: rgb(255, 255, 255); 
-  float: center;
-}
-
-.navbar-outline {
-  font-weight: bold;
-}
-
-.navbar-outline a, .navbar-outline a:link {
-  color: black;
-}
-
-.imgInTable {
-  max-height: 2.5em;
-}
-
-/* The following rules were provided by the create-react-app script/template */
-
 .App {
-  text-align: center;
+  background-color: black;
+  color: white;
+  padding-bottom: 25%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.p {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  color:white;
+  padding: 35px;
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button{
+  color: black;
 }
+
+div.home{
+  padding-top: 200px;
+}
+
+div.login{
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+h2.home{
+ color: white;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 5px 5px 5px 5px;
+  border: 2px solid lightgray;
+  border-radius: 4px;
+}
+
+label{
+  color:white;
+}
+
+td{
+  color: white;
+}
+
+th{
+  color: white;
+}
+
+#main-pic{
+  width:35%;
+  height:100%;
+
+}
+#dropdown-basic-button{
+margin-top: 9px;
+margin-right: 10px;
+border-color: white;
+} 
