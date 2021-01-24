@@ -1,0 +1,136 @@
+.App {
+  background-color: black;
+  color: white;
+  padding-bottom: 25%;
+}
+
+.p {
+  color: white;
+}
+
+a {
+  color:white;
+  padding: 35px;
+  float: left;
+}
+
+button{
+  color: white;
+}
+
+div.home{
+  padding-top: 200px;
+}
+
+div.login{
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+h2.home{
+ color: white;
+}
+
+hr {
+  background-color: white;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 5px 5px 5px 5px;
+  border: 3px solid lightskyblue;
+  border-radius: 4px;
+}
+
+textarea {
+  margin-bottom: 15px;
+  padding: 5px 5px 5px 5px;
+  border: 3px solid lightskyblue;
+  border-radius: 4px;
+}
+
+label{
+  color:white;
+}
+
+td{
+  color: white;
+}
+
+th{
+  color: white;
+}
+
+#main-pic{
+  width:35%;
+  height:100%;
+
+}
+#dropdown-basic-button{
+  margin-top: 9px;
+  margin-right: 10px;
+  border-color: white;
+  } 
+#title{
+  font-size: 20px;
+}
+
+#transition-modal-description{
+color: black;
+}
+
+#div_innerModal{
+  text-align: center;
+  background-color: rgb(255, 255, 134) !important;
+}
+
+#note_Img{
+  width:50px;
+  height:50px;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 32px; 
+}
+#div_note{
+  
+  text-align: center;
+}
+ #poster_book{
+  width: 200px;
+  height: 300px;
+}
+.popup-content {
+  background-color: rgba(0, 101, 196, 0) !important;
+  border: 0px !important;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;
+}
+#popup_buttons{
+  width: 200px;
+  margin-top: 2px;
+}
+
+
+#hiddenStar{
+  display: none;
+}
+  
+#atlist_logo{
+
+  width:10em;
+  margin-right: 4.5em
+}
+#media_title{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding-right: 2em;
+
+}
+.home button{
+margin: 1em;
+}
+.home{
+text-align: center;
+}
