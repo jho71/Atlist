@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
+<<<<<<< HEAD
 import Notify from './TvshowsNoteNotify'
 import '../App.css'
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 var email = []
 
 class TvshowShelftoWatch  extends Component {
@@ -39,7 +42,11 @@ class TvshowShelftoWatch  extends Component {
                 .then(querySnapshot => {
                     const data = querySnapshot.docs.map(doc => doc.data())
                     for (var i = 0; i < data.length; i++) {
+<<<<<<< HEAD
                         this.state.id.push(`/show/detail/${data[i].showID}`)
+=======
+                        this.state.id.push(data[i].showID)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                         this.state.url.push(`https://api.themoviedb.org/3/tv/${data[i].showID}?api_key=929731b62f68993f7b40b443978575d3&language=en-US`)
                     }
                 })
@@ -49,7 +56,11 @@ class TvshowShelftoWatch  extends Component {
                             .then(dataWrappedByPromise => dataWrappedByPromise.json())
                             .then(data => {
                                 this.setState({
+<<<<<<< HEAD
                                     title: [...this.state.title, data.original_name],
+=======
+                                    title: [...this.state.title, data.original_title],
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                                     poster: [...this.state.poster, "https://image.tmdb.org/t/p/w200" + data.poster_path]
                                 }, () => {
                                 })
@@ -63,6 +74,7 @@ class TvshowShelftoWatch  extends Component {
         })
     }
 
+<<<<<<< HEAD
     createEntityTable = () => {
 
         let table = [];
@@ -101,6 +113,22 @@ class TvshowShelftoWatch  extends Component {
         return (
             <div>
                 {this.createEntityTable()}
+=======
+    render() {
+        var idx = 0
+        return (
+          
+            <div>
+                {this.state.poster.map(function (poster, index) {
+                    if (idx < 5) {
+                        idx++
+                        return <td key={index}><img src={poster} alt="poster"></img></td>
+                    }
+                    else {
+                        return <span><tr></tr><td key={index}><img src={poster} alt="poster"></img></td></span>
+                    }
+                })}
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
             </div>
                
         );

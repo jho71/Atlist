@@ -132,6 +132,7 @@ url = `https://api.themoviedb.org/3/tv/popular?api_key=929731b62f68993f7b40b4439
         <div>
            <div> 
               <h1>Popular TV Shows</h1>
+<<<<<<< HEAD
               <h5>Page {props.id}</h5>
               <br></br>
               <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${last10}`}><label>Back 10</label></a>
@@ -139,6 +140,15 @@ url = `https://api.themoviedb.org/3/tv/popular?api_key=929731b62f68993f7b40b4439
               <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
               <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next</label></a>
               <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10</label></a>
+=======
+              <h5>page {props.id}</h5>
+              <br></br>
+              <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${last10}`}><label>Go Back 10 Pages</label></a>
+              <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${lastPage}`}><label>Previous Page</label></a>
+              <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
+              <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next Page</label></a>
+              <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10 Pages</label></a>
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
           </div>
         </div>
       )
@@ -147,12 +157,21 @@ url = `https://api.themoviedb.org/3/tv/popular?api_key=929731b62f68993f7b40b4439
       <div>
         <div> 
            <h1>Popular TV Shows</h1>
+<<<<<<< HEAD
            <h5>Page {props.id}</h5>
            <br></br>
            <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${lastPage}`}><label>Previous</label></a>
            <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
            <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next</label></a>
            <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10</label></a> 
+=======
+           <h5>page {props.id}</h5>
+           <br></br>
+           <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${lastPage}`}><label>Previous Page</label></a>
+           <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
+           <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next Page</label></a>
+           <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10 Pages</label></a> 
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
        </div>
      </div>
      )
@@ -161,11 +180,19 @@ url = `https://api.themoviedb.org/3/tv/popular?api_key=929731b62f68993f7b40b4439
       <div>
         <div> 
            <h1>Popular TV Shows</h1>
+<<<<<<< HEAD
            <h5>Page {props.id}</h5>
            <br></br>
            <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
            <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next</label></a>
            <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10</label></a> 
+=======
+           <h5>page {props.id}</h5>
+           <br></br>
+           <Link className='btn btn-default' to={`/shows`}><label>Return to page list</label></Link>
+           <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${nextPage}`}><label>Next Page</label></a>
+           <a className='btn btn-default' type="text/css" rel="stylesheet" href={`/shows/page/${next10}`}><label>Skip 10 Pages</label></a> 
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
        </div>
      </div>
       )

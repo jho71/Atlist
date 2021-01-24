@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
+<<<<<<< HEAD
 import Popup from "reactjs-popup";
 import * as firebase from 'firebase'
 import * as moment from 'moment'
@@ -10,11 +11,16 @@ import StarRating from '../Utility/StarRating'
 
 var email = [];
 var entityType = "book";
+=======
+import * as firebase from 'firebase'
+import Popup from "reactjs-popup";
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 
 class BookDetail extends Component {
 
   // Class properties 
 
+<<<<<<< HEAD
   state = { 
     book: {},
     bookPic: {},
@@ -51,6 +57,30 @@ class BookDetail extends Component {
     </Popup>
 
     return (m)
+=======
+  state = { book: {}, bookPic: {}, httpStatusCode: 0, httpStatusOk: true, exists: null };
+
+  url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${this.props.id}&key=AIzaSyCsBBANgxmahbgmDhSJY_PohBawwQQOOGw`;
+
+  TooltipList(listOption){
+    
+    var m = <Popup
+      trigger={open => (
+        <Button className="button">
+          {listOption} shelf</Button>
+      )}
+
+      position="right center"
+      on= "hover"
+      variant="primary"
+      closeOnDocumentClick
+    >
+      <Button onClick ={(e) => this.handleClickAdd(listOption)}>Add To Shelf</Button>
+      <Button onClick ={(e) => this.handleClickRemove(listOption)}>Remove From Shelf</Button>
+    </Popup>
+
+     return(m)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
   };
 
   handleClickAdd(listOption) {
@@ -60,6 +90,10 @@ class BookDetail extends Component {
     var user = firebase.auth().currentUser
 
     const u = this.state.book;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     var usersRef = db.doc(`searchUsers/${user.email}`)  
   
     usersRef.get()
@@ -71,6 +105,10 @@ class BookDetail extends Component {
     } else {
       usersRef.set({}) // create the document
     }})
+<<<<<<< HEAD
+=======
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     let bookDoc = db.collection("users")
     .doc(user.email)
     .collection("books")
@@ -78,10 +116,13 @@ class BookDetail extends Component {
     .collection(listOption)
     .doc(u.title)
 
+<<<<<<< HEAD
     let historyCol = db.collection("users")
     .doc(user.email)
     .collection("historyList")
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     bookDoc.get()
     .then(doc => {
       // if doc does not exist
@@ -91,6 +132,7 @@ class BookDetail extends Component {
         .then(() => {
           this.setState({ exists: true });
           alert("Book: [ " + u.title + " ] has been added to your " + listOption + " shelf")
+<<<<<<< HEAD
 
           // Add a new document with a generated id.
           let time = moment().format('X').toString();
@@ -107,6 +149,8 @@ class BookDetail extends Component {
           console.log('Added action with ID: ', ref.id);
           });
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
         })
       } else {
         alert("This book already exists in your " + listOption + " shelf")
@@ -118,6 +162,23 @@ class BookDetail extends Component {
       alert("Error connecting to server")
     });
 
+<<<<<<< HEAD
+=======
+    /*
+    db.collection("users")
+      .doc(user.email)
+      .collection("books")
+      .doc("section")
+      .collection("read")
+      .add({ bookID: this.props.id })
+      .then(() => {
+        alert("A new book has been added", "Success")
+      })
+      .catch(error => {
+        alert(error.message, "Add book failed")
+      });
+      */
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
   }
 
   handleClickRemove(listOption) {
@@ -135,10 +196,13 @@ class BookDetail extends Component {
     .collection(listOption)
     .doc(u.title)
 
+<<<<<<< HEAD
     let historyCol = db.collection("users")
     .doc(user.email)
     .collection("historyList")
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     bookDoc.get()
     .then(doc => {
       // check of doc exists
@@ -148,6 +212,7 @@ class BookDetail extends Component {
         .delete()
         this.setState({ exists: false });
         alert("Book: [ " + u.title + " ] has been removed from your " + listOption + " shelf")
+<<<<<<< HEAD
 
         let time = moment().format('X').toString();
             // Add to history list
@@ -162,6 +227,8 @@ class BookDetail extends Component {
             .then(ref => {
             console.log('Added action with ID: ', ref.id);
             });
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
       } else {
         alert("Book does not exist in your " + listOption + "shelf")
         this.setState({ exists: null });
@@ -173,6 +240,7 @@ class BookDetail extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
 
     const sleep = (milliseconds) => {
       return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -201,6 +269,11 @@ class BookDetail extends Component {
 
     sleep(1000).then(() => {
       fetch(this.url)
+=======
+    console.log("book detail mounted");
+    // Get one
+    fetch(this.url)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
       .then(response => {        // Optional...
         console.log(response);
         console.log("attempting to read")
@@ -219,6 +292,7 @@ class BookDetail extends Component {
       .then(responseData => {
         // "responseData" is an object; here, we're interested in its "data" property
         // Study the shape of the data in the reqres.in service
+<<<<<<< HEAD
         console.log(responseData.items[0].volumeInfo)
         console.log("ISBN13: " + responseData.items[0].volumeInfo.industryIdentifiers[0].identifier.toString())
 
@@ -291,15 +365,27 @@ class BookDetail extends Component {
         // ADD
 
 
+=======
+        this.setState({ book: responseData.items[0].volumeInfo, bookPic: responseData.items[0].volumeInfo.imageLinks.thumbnail} );
+
+        console.log(this.state.book)
+
+        console.log("Current book pic " + this.state.bookPic)
+        // Optional...
+        //console.log(responseData.data);
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
       })
       .catch(error => {
         // Handles an error thrown above, as well as network general errors
         console.log(error)
       });
+<<<<<<< HEAD
     })
 
 
     
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
   }
 
   render() {
@@ -337,6 +423,7 @@ class BookDetail extends Component {
             
           <div className="row">
             <div className="col-md-12">
+<<<<<<< HEAD
             <br/>
             <h1>{u.title}</h1> 
 
@@ -361,17 +448,33 @@ class BookDetail extends Component {
               <dl>
               <br></br>
                <dt><img src={p}  id="poster_book" alt="profilepic"></img></dt>
+=======
+            <h1>{u.title}</h1> 
+            <EntityExists doesExist={this.state.exists} />
+            {this.TooltipList("read")} {this.TooltipList("to-read")}
+              <dl>
+              <br></br>
+               <dt><img src={p} alt="profilepic"></img></dt>
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                <dt>Subtitle</dt>              <dd>{u.subtitle}</dd>
                <dt>Description</dt>           <dd>{u.description}</dd>
                <dt>Author</dt>                <dd>{u.authors}</dd>
                <dt>Publisher</dt>             <dd>{u.publisher}</dd>
                <dt>Publishing Date</dt>       <dd>{u.publishedDate}</dd>
                <dt>Page Count</dt>            <dd>{u.pageCount}</dd>
+<<<<<<< HEAD
               </dl>
             </div>
             <hr />
             <Review itemId={this.props.id} itemName={u.title}/>
           </div>
+=======
+
+              </dl>
+            </div>
+          </div>
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
         ) : (
           <p>Requested book was not found</p>
           )}

@@ -4,9 +4,12 @@ import Tab from 'react-bootstrap/Tab'
 import * as firebase from 'firebase'
 import BookstoReadShelf from './BookstoReadShelf'
 
+<<<<<<< HEAD
 import Notify from './BooksNoteNotify'
 import '../App.css'
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 var email = []
 
 class Shelf extends Component {
@@ -33,7 +36,11 @@ class Shelf extends Component {
             return new Promise((resolve) => setTimeout(resolve, time));
         }
 
+<<<<<<< HEAD
         sleep(1000).then(() => {
+=======
+        sleep(10000).then(() => {
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
             db.collection("users")
                 .doc(email[0])
                 .collection("books")
@@ -55,7 +62,11 @@ class Shelf extends Component {
                                 this.setState({
                                     title: [...this.state.title, data.items[0].volumeInfo.title],
                                     poster: [...this.state.poster, data.items[0].volumeInfo.imageLinks.thumbnail]
+<<<<<<< HEAD
                                 }, () => { 
+=======
+                                }, () => { console.log("test1 " + data.items[0].volumeInfo.title)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                                 })
                             })
                             .catch(function (error) {
@@ -86,12 +97,21 @@ class Shelf extends Component {
             
             // inner loop to create children
             //for (let j = 0; j < len; j++){
+<<<<<<< HEAD
             children.push(
                 <div id="div_note">
                 <Notify title = {this.state.title[i]}/>
                 <a href={this.state.id[i]}><img src={this.state.poster[i]}  id="poster_book" alt="poster"></img></a>
                 <h2 id = 'title'>{this.state.title[i]}</h2>
                 
+=======
+            children.push(<div>
+                
+                <a href={this.state.id[i]}><img src={this.state.poster[i]} alt="poster"></img></a>
+                <br></br>
+                <h3>{this.state.title[i]}</h3>
+                {console.log("test2 " + this.state.title[i])}
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                 </div>)
         
         // if is mutliple of 5 make a new row

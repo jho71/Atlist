@@ -3,8 +3,11 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import * as firebase from 'firebase'
 import TvshowsShelftoWatch from './TvshowsShelftoWatch'
+<<<<<<< HEAD
 import Notify from './TvshowsNoteNotify'
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 
 var email = []
 
@@ -42,7 +45,11 @@ class Shelf extends Component {
                 .then(querySnapshot => {
                     const data = querySnapshot.docs.map(doc => doc.data())
                     for (var i = 0; i < data.length; i++) {
+<<<<<<< HEAD
                         this.state.id.push(`/show/detail/${data[i].showID}`)
+=======
+                        this.state.id.push(data[i].showID)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                         this.state.url.push(`https://api.themoviedb.org/3/tv/${data[i].showID}?api_key=929731b62f68993f7b40b443978575d3&language=en-US`)
                     }
                 })
@@ -52,10 +59,16 @@ class Shelf extends Component {
                             .then(dataWrappedByPromise => dataWrappedByPromise.json())
                             .then(data => {
                                 this.setState({
+<<<<<<< HEAD
                                     title: [...this.state.title, data.original_name],
                                     poster: [...this.state.poster, "https://image.tmdb.org/t/p/w200" + data.poster_path]
                                 }, () => {
                                    
+=======
+                                    title: [...this.state.title, data.original_title],
+                                    poster: [...this.state.poster, "https://image.tmdb.org/t/p/w200" + data.poster_path]
+                                }, () => {
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                                 })
                             })
                             .catch(function (error) {
@@ -67,6 +80,7 @@ class Shelf extends Component {
         })
     }
 
+<<<<<<< HEAD
     createEntityTable = () => {
 
         let table = [];
@@ -102,13 +116,35 @@ class Shelf extends Component {
 
     render() {
 
+=======
+    /*<tr>
+                    {this.state.title.map(function (title, index) {
+                        return <td key={index}><h3>{title}</h3></td>
+                    })}
+    </tr>*/
+
+    render() {
+        var idx = 0
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
         return (
             <div>
                 <br />
                 <Tabs defaultActiveKey="watched" id="uncontrolled-tab-example">
                     <Tab eventKey="watched" title="Watched">
                         <div>
+<<<<<<< HEAD
                             {this.createEntityTable()}
+=======
+                            {this.state.poster.map(function (poster, index) {
+                                if (idx < 5) {
+                                    idx++
+                                    return <td key={index}><img src={poster} alt="poster"></img></td>
+                                }
+                                else {
+                                    return <span><tr></tr><td key={index}><img src={poster} alt="poster"></img></td></span>
+                                }
+                            })}
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                         </div>
                     </Tab>
                     <Tab eventKey="to-watch" title="To-Watch">

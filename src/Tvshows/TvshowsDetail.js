@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import Button from 'react-bootstrap/Button' 
 import Popup from "reactjs-popup";
 import Review from '../Review'
@@ -10,11 +11,18 @@ import StarRating from '../Utility/StarRating'
 
 var email = [];
 var entityType = "tvshow";
+=======
+import * as moment from 'moment'
+import Button from 'react-bootstrap/Button' 
+import * as firebase from 'firebase'
+import Popup from "reactjs-popup";
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 
 class ShowDetail extends Component {
 
   // Class properties 
 
+<<<<<<< HEAD
   state = { show: {},
    httpStatusCode: 0,
    httpStatusOk: false,
@@ -50,6 +58,31 @@ class ShowDetail extends Component {
     </Popup>
 
     return (m)
+=======
+  state = { show: {}, httpStatusCode: 0, httpStatusOk: false, exists: null};
+
+  url = `https://api.themoviedb.org/3/tv/${this.props.id}?api_key=929731b62f68993f7b40b443978575d3&language=en-US`;
+
+  TooltipList(listOption){
+    
+    var m = <Popup
+      trigger={open => (
+        <Button className="button">
+          {listOption} shelf</Button>
+      )}
+
+
+      position="right center"
+      on= "hover"
+      variant="primary"
+      closeOnDocumentClick
+    >
+      <Button onClick ={(e) => this.handleClickAdd(listOption)}>Add To Shelf</Button>
+      <Button onClick ={(e) => this.handleClickRemove(listOption)}>Remove From Shelf</Button>
+    </Popup>
+
+     return(m)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
   };
 
   handleClickAdd(listOption) {
@@ -77,10 +110,13 @@ class ShowDetail extends Component {
     .collection(listOption)
     .doc(u.original_name)
 
+<<<<<<< HEAD
     let historyCol = db.collection("users")
     .doc(user.email)
     .collection("historyList")
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     showDoc.get()
     .then(doc => {
       // if doc does not exist
@@ -90,6 +126,7 @@ class ShowDetail extends Component {
         .then(() => {
           this.setState({ exists: true });
           alert("Tv Show: [ " + u.original_name + " ] has been added to your " + listOption + " shelf")
+<<<<<<< HEAD
 
           let time = moment().format('X').toString();
           // Add a new document with a generated id.
@@ -106,6 +143,8 @@ class ShowDetail extends Component {
           console.log('Added action with ID: ', ref.id);
           });
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
         })
       } else {
         alert("Tv Show already exists in your " + listOption + " shelf")
@@ -133,10 +172,13 @@ class ShowDetail extends Component {
     .collection(listOption)
     .doc(u.original_name)
 
+<<<<<<< HEAD
     let historyCol = db.collection("users")
     .doc(user.email)
     .collection("historyList")
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     showDoc.get()
     .then(doc => {
       // check of doc exists
@@ -146,6 +188,7 @@ class ShowDetail extends Component {
         .delete()
         this.setState({ exists: false });
         alert("Tv Show: [ " + u.original_name + " ] has been removed from your list")
+<<<<<<< HEAD
 
         // get current unix timestamp
         let time = moment().format('X').toString();
@@ -162,6 +205,8 @@ class ShowDetail extends Component {
         .then(ref => {
         console.log('Added action with ID: ', ref.id);
         });
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
       } else {
         alert("Tv Show does not exist in your list")
         this.setState({ exists: null });
@@ -174,6 +219,7 @@ class ShowDetail extends Component {
 
   componentDidMount() {
 
+<<<<<<< HEAD
     const sleep = (milliseconds) => {
       return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
@@ -201,6 +247,10 @@ class ShowDetail extends Component {
 
     sleep(2000).then(() => {
       fetch(this.url)
+=======
+    // Get one
+    fetch(this.url)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
       .then(response => {
         // Optional...
         this.setState({ httpStatusCode: response.status, httpStatusOk: response.ok });
@@ -218,6 +268,7 @@ class ShowDetail extends Component {
       .then(responseData => {
         // "responseData" is an object; here, we're interested in its "data" property
         // Study the shape of the data in the reqres.in service
+<<<<<<< HEAD
         console.log("within rD:" + email[0]);
 
         this.setState({show: responseData,
@@ -293,6 +344,16 @@ class ShowDetail extends Component {
     });
 
     
+=======
+        this.setState({ show: responseData});
+        // Optional...
+        //console.log(responseData.data);
+      })
+      .catch(error => {
+        // Handles an error thrown above, as well as network general errors
+        console.log(error)
+      });
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
   }
 
   render() {
@@ -321,6 +382,7 @@ class ShowDetail extends Component {
             
             <div className="col-md-12">
               <dl className="dl-horizontal">
+<<<<<<< HEAD
               <br/>
                 <dd><h1>{u.original_name}</h1>
 
@@ -342,6 +404,11 @@ class ShowDetail extends Component {
 
                 <EntityExists doesExist={this.state.exists} />
                 
+=======
+                <dd><h1>{u.original_name}</h1>
+                <EntityExists doesExist={this.state.exists} />
+                {this.TooltipList("watched")} {this.TooltipList("to-watch")}
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                 </dd>
                 <br></br>
                 <dd><img src={"https://image.tmdb.org/t/p/w200" + u.poster_path} alt="profilepic"></img></dd>
@@ -354,10 +421,16 @@ class ShowDetail extends Component {
                 <dt>Runtime</dt>            <dd>{u.runtime}</dd>
                 <dt>Release Date</dt>       <dd>{moment(u.release_date).format('LL')}</dd>
                 <dt>Official Website</dt>   <dd>{u.homepage}</dd>
+<<<<<<< HEAD
               </dl>
             </div>
             <hr />
             <Review itemId={this.props.id} itemName={u.original_name}/>
+=======
+
+              </dl>
+            </div>
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
           </div>
 
         ) : (

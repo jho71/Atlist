@@ -36,11 +36,19 @@
 
                 if (doc.exists) {
                 console.log("Email data:", doc.data());
+<<<<<<< HEAD
                  docUser.collection("friends-sent").doc(searchVal).set(
                     {friendRequest : searchVal, 
                  requestStatus : 'requesting'
                 })
                 docRef.collection("friends-requests").doc(email).set(
+=======
+                 docUser.collection("friends").doc(searchVal).set(
+                    {friendRequest : searchVal, 
+                 requestStatus : 'sent'
+                })
+                docRef.collection("friends").doc(email).set(
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                     {friendRequest : email, 
                  requestStatus : 'pending'
                 })

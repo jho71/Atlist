@@ -11,7 +11,11 @@ const withAuthorization = condition => Component => {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           if (!condition(authUser)) {
+<<<<<<< HEAD
             //this.props.history.push("/create")
+=======
+            this.props.history.push("/create")
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
           }
         },
       )

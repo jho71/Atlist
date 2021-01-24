@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
+<<<<<<< HEAD
 
 import Notify from './BooksNoteNotify'
 import '../App.css'
 
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 var email = []
 
 class BookstoReadShelf extends Component {
@@ -40,7 +43,11 @@ class BookstoReadShelf extends Component {
                 .then(querySnapshot => {
                     const data = querySnapshot.docs.map(doc => doc.data())
                     for (var i = 0; i < data.length; i++) {
+<<<<<<< HEAD
                         this.state.id.push(`/book/detail/${data[i].bookID}`)
+=======
+                        this.state.id.push(data[i].bookID)
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                         this.state.url.push(`https://www.googleapis.com/books/v1/volumes?q=isbn:${data[i].bookID}&key=AIzaSyCsBBANgxmahbgmDhSJY_PohBawwQQOOGw`)
                     }
                 })
@@ -50,7 +57,11 @@ class BookstoReadShelf extends Component {
                             .then(dataWrappedByPromise => dataWrappedByPromise.json())
                             .then(data => {
                                 this.setState({
+<<<<<<< HEAD
                                     title: [...this.state.title, data.items[0].volumeInfo.title],
+=======
+                                    title: [...this.state.title, data.title],
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                                     poster: [...this.state.poster, data.items[0].volumeInfo.imageLinks.thumbnail]
                                 }, () => {
                                 })
@@ -70,6 +81,7 @@ class BookstoReadShelf extends Component {
                     })}
     </tr>*/
 
+<<<<<<< HEAD
     createEntityTable = () => {
 
         let table = [];
@@ -108,6 +120,21 @@ class BookstoReadShelf extends Component {
         return (
             <div>
                 {this.createEntityTable()}
+=======
+    render() {
+        var idx = 0
+        return (
+            <div>
+                {this.state.poster.map(function (poster, index) {
+                    if (idx < 5) {
+                        idx++
+                        return <td key={index}><img src={poster} alt="poster"></img></td>
+                    }
+                    else {
+                        return <span><tr></tr><td key={index}><img src={poster} alt="poster"></img></td></span>
+                    }
+                })}
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
             </div>
                  
         );

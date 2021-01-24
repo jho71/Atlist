@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
+<<<<<<< HEAD
+=======
+ import Button from 'react-bootstrap/Button'
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 
 var email = []
 var list = []

@@ -4,8 +4,11 @@ import Tab from 'react-bootstrap/Tab'
 import * as firebase from 'firebase'
 import MoviesShelftoWatch from './MovieShelfToWatch'
 
+<<<<<<< HEAD
 import Notify from './MovieNoteNotify'
 import '../App.css'
+=======
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 var email = []
 
 class Shelf extends Component {
@@ -33,7 +36,11 @@ class Shelf extends Component {
         }
 
         // grab all the data
+<<<<<<< HEAD
         sleep(3000).then(() => {
+=======
+        sleep(10000).then(() => {
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
             db.collection("users")
                 .doc(email[0])
                 .collection("movies")
@@ -60,8 +67,13 @@ class Shelf extends Component {
                                 this.setState({
                                     // basically a multiple push, except the page will refresh
                                     title: [...this.state.title, data.original_title],
+<<<<<<< HEAD
                                     poster: [...this.state.poster, "https://image.tmdb.org/t/p/w200" + data.backdrop_path]
                                     //id: [...this.state.id, data.movieID] already done BELOW..
+=======
+                                    poster: [...this.state.poster, "https://image.tmdb.org/t/p/w200" + data.poster_path]
+                                    //id: [...this.state.id, data.movieID] already done up top..
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                                 })
                             })
                             .catch(function (error) {
@@ -73,10 +85,20 @@ class Shelf extends Component {
         })
     }
 
+<<<<<<< HEAD
+=======
+    /*<tr>
+                    {this.state.title.map(function (title, index) {
+                        return <td key={index}><h3>{title}</h3></td>
+                    })}
+    </tr>*/
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
     createEntityTable = () => {
 
         let table = [];
         var len = this.state.poster.length
+<<<<<<< HEAD
 
         let index = 0;
 
@@ -109,6 +131,37 @@ class Shelf extends Component {
         return table;
     }
    
+=======
+        
+        let index = 0;
+
+        // outer loop to create parent
+        for (let i = 0; i < len; i++){
+            let children = []
+            
+            // inner loop to create children
+            //for (let j = 0; j < len; j++){
+            children.push(<div>
+                
+                <a href={this.state.id[i]}><img src={this.state.poster[i]} alt="poster"></img></a>
+                <br></br>
+                <h2>{this.state.title[i]}</h2>
+                
+                </div>)
+        
+        // if is mutliple of 5 make a new row
+           index++
+           if (index%5 === 0){
+               table.push(<tr></tr>)
+           }
+
+           table.push(<td>{children}</td>)
+        }
+
+        return table;
+    }              
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
 
     render() {
         return (
@@ -117,11 +170,22 @@ class Shelf extends Component {
                 <Tabs defaultActiveKey="watched" id="uncontrolled-tab-example">
                     <Tab eventKey="watched" title="Watched">
                         <div>
+<<<<<<< HEAD
                             <table>
                                 <tbody>
                                     {this.createEntityTable()}
                                 </tbody>
                             </table>
+=======
+                            {  
+                            // for (var i = 0; i < this.state.url.length; i++) {} NOPE
+                            // for loops show unexpected token, cannot declare children for null parent
+                            // declare outside of render src: https://blog.cloudboost.io/for-loops-in-react-render-no-you-didnt-6c9f4aa73778
+                            }
+
+                            {this.createEntityTable()}
+
+>>>>>>> 22dd207cfbe0bcca819cd08b276bd4dcf0be79f2
                         </div>
 
 
